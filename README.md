@@ -1,2 +1,2 @@
 # RESTful-JSON-API-Golang
-Building a basic REST API using Go
+"Developing a simple REST API in Go to deepen my understanding of RESTful principles and practices."
