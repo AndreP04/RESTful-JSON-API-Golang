@@ -35,4 +35,12 @@ var routes = Routes{
 		"/todos/{todoId}",
 		TodoShow,
 	},
+
+	//Route to take in and store some JSON
+	Route{
+		"TodoCreate",
+		"POST",
+		"/todos",
+		TodoCreate,
+	},
 }

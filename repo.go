@@ -13,14 +13,14 @@ func init() {
 	RepoCreateTodo(Todo{Name: "Host meetup"})
 }
 
-func repoFindTodo(id int) Todo {
-	for_, t := range todos {
-		if t.Id == id {
-			return t
-		}
-	}
-	//Return empty Todo if it is not found
-	return Todo{}
+func RepoFindTodo(id int) Todo {
+    for _, t := range todos {
+        if t.Id == id {
+            return t
+        }
+    }
+    //Return empty Todo if it is not found
+    return Todo{}
 }
 
 func RepoCreateTodo(t Todo) Todo {
@@ -30,11 +30,13 @@ func RepoCreateTodo(t Todo) Todo {
 	return t
 }
 
-func RepoDestroyTodo(id int) {
-	for i, t := range todos {
-		if t.Id == id {
-			todos = append(todos[:i], todos[i+1:]...)
-		}
-	}
-	return fmt.Errorf("Todo with ID of %d not found. Could not delete", id)
+func RepoDestroyTodo(id int) error {
+    for i, t := range todos {
+        if t.Id == id {
+            todos = append(todos[:i], todos[i+1:]...)
+            return nil
+        }
+    }
+
+    return fmt.Errorf("Could not find Todo with id: %d to delete", id)
 }
