@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"golang.org/x/net/html/charset"
 )
 
 //Endpoints
@@ -22,6 +23,9 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 		Todo{Name: "Host meetup"},
 	}
 
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	
 	if err := json.NewEncoder(w).Encode(todos); err != nil {
 		panic(err)
 	}

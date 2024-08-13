@@ -6,9 +6,10 @@ import (
 
 //Create a model
 type Todo struct {
-	Name string
-	Completed bool
-	Due time.Time
+	Id int `json:"id"`
+	Name string `json:"name"`
+	Completed bool `json:"completed"`
+	Due time.Time `json:"due"`
 }
 
 //Create toDo data type (slice)
